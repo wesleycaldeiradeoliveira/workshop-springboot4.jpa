@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Profile;
 import com.wesleydev.Web.entities.Category;
 import com.wesleydev.Web.entities.Order;
 import com.wesleydev.Web.entities.OrderItem;
+import com.wesleydev.Web.entities.Payment;
 import com.wesleydev.Web.entities.Product;
 import com.wesleydev.Web.entities.User;
 import com.wesleydev.Web.entities.enuns.OrderStatus;
@@ -74,5 +75,11 @@ public class TestConfig implements CommandLineRunner {
 		OrderItem oi4 = new OrderItem(o3, p5, 2, p5.getPrice());
 
 		orderItemRepository.saveAll(Arrays.asList(oi1, oi2, oi3, oi4));
+		
+		Payment pay1 = new Payment(null, Instant.parse("2024-01-20T19:53:07Z"),o1);
+		o1.setPayment(pay1);
+		
+		orderRepository.save(o1);
+		
 	}
 }
