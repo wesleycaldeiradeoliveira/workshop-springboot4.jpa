@@ -23,9 +23,10 @@ public class CategoryReseurce {
 		List<Category> list = service.FindALL();
 		return ResponseEntity.ok().body(list);
 	}
+
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<Category> findById (@PathVariable long id){
+	public ResponseEntity<Category> findById(@PathVariable long id) {
 		Category obj = service.findById(id);
-	return ResponseEntity.ok().body(obj);
+		return ResponseEntity.ok().body(obj);
 	}
 }
